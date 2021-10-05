@@ -60,7 +60,7 @@ const regnum= Regweb(registration);
 
 
 
-app.get('/reg_number',regnum.home);
+app.get('/',regnum.home);
 
 app.post('/reg_number',regnum.setReg);
 

@@ -23,7 +23,7 @@ module.exports = function registrationRoutes(registration) {
       
         }
       
-          res.redirect("/reg_number");
+          res.redirect("/");
         }
 
         async function filterReg (req, res){
@@ -52,7 +52,7 @@ module.exports = function registrationRoutes(registration) {
           }
 
           async function allReg(req,res){
-            res.redirect("/reg_number");
+            res.redirect("/");
         
           }
 
@@ -60,7 +60,7 @@ module.exports = function registrationRoutes(registration) {
             req.flash('success','Application has succesfully been reset!')
             await registration.clearReg();
         
-            res.redirect("/reg_number");
+            res.redirect("/");
           }
 
 
