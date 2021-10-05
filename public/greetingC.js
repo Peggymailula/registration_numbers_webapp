@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function(){
 
     let errorMsg= document.querySelector('.errors');
-    let successMsg = document.querySelector('.green');
-    let name = document.querySelector('.name')
+    let successMsg = document.querySelector('.success');
+    
 
     if(errorMsg !== ''){
         setTimeout(() => {

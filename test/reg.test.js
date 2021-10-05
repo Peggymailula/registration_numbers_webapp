@@ -24,126 +24,163 @@ beforeEach(async function(){
 describe('Registrations Webapp: Setting registration plates format' ,async function(){
 
 
-it("should take in registration number 'CA-12345' " ,async function(){
+it("should take in registration number 'CA-12345' for Cape Town" ,async function(){
     let Reg1 = Registration(pool);
     
-    await Reg1.setPlate("CA12345")
+    await Reg1.setPlate("CA-12345");
+    await Reg1.setID("CA-12345");
 
-        assert.deepEqual([{ "reg_number": 'CA12345' }], await Reg1.getRegList())
+        assert.deepEqual([{ "reg_number":"CA-12345"}], await Reg1.getRegList())
 
 });
-// it('should take in the name Penny and use isiXhosa language to greet her' ,async function(){
-//     let greet1 =greetings(pool);
-//     await greet1.greetNow('isiXhosa','Penny')
 
+it("should take in registration number the same registration is smaller case 'cl-12345' " ,async function(){
+    let Reg1 = Registration(pool);
+    
+    await Reg1.setPlate("cl-12345");
+        assert.deepEqual([{ "reg_number":"CL-12345"}], await Reg1.getRegList())
 
-//      assert.equal("Molo, Penny!",greet1.getGreet());
+});
 
+it("should take in registration number 'CY-123-456' for Bellville" ,async function(){
+    let Reg1 = Registration(pool);
+    
+    await Reg1.setPlate("CY-123-456");
+   
 
-// });
+        assert.deepEqual([{ "reg_number":"CY-123-456"}], await Reg1.getRegList())
+
+});
+
+it("should take in registration number the same registration is smaller case 'cy-123-456' " ,async function(){
+    let Reg1 = Registration(pool);
+    await Reg1.setPlate("cy-123-456");
+  
+        assert.deepEqual([{ "reg_number":"CY-123-456"}], await Reg1.getRegList())
+
+});
+
 })
 
 
+describe('Registrations Webapp: Filter the correct location for registration plates' ,async function(){
 
-// describe('Greet exercise:Counter setting' ,async function(){
-//     it('should take in one name and return counter as one' , async function(){
-//         var greet1 = greetings(pool);
-       
 
-       
+    it("should filter the registrations from Bellville" ,async function(){
+        let Reg1 = Registration(pool);
 
-//         await greet1.greetNow('English','Amy');
+        await Reg1.setPlate("cy-345-456");
+        await Reg1.setPlate("cl-12345");
+        await Reg1.setPlate("cy-222-456");
+        await Reg1.setPlate("cy123456");
         
-
-
-//          assert.equal(1,await greet1.getCounter());
-
-// });
-
-// it('should take in five different names and return counter as 5' , async function(){
-   
-//     var greet2 = greetings(pool);
-
-
+      await Reg1.setID('CY');
     
-//     await greet2.greetNow('English','Amy');
-//     await greet2.greetNow('English','Peggy');
-//     await greet2.greetNow('Afrikaans','Penny');
-//     await greet2.greetNow('isiXhosa','Enhle');
-//     await greet2.greetNow('isiXhosa','Mbali');
+    
+            assert.deepEqual([
+                {
+                  reg_number: 'CY-345-456'
+                },
+                {
+                  reg_number: 'CY-222-456'
+                }]
+              , await Reg1.setTown("CY"));
+    
+    });
+
+    it("should filter the registrations from Stellenbosch" ,async function(){
+        let Reg1 = Registration(pool);
+
+        await Reg1.setPlate("cy-345-456");
+        await Reg1.setPlate("cl-12345");
+        await Reg1.setPlate("cl-222-456");
+        await Reg1.setPlate("cy123456");
+        
+      await Reg1.setID('CY');
+    
+    
+            assert.deepEqual([
+                {
+                  reg_number: 'CL-12345'
+                },
+                {
+                  reg_number: 'CL-222-456'
+                }]
+              , await Reg1.setTown("CL"));
+    
+    });
+
+    it("should filter the registrations from Cape Town" ,async function(){
+        let Reg1 = Registration(pool);
+
+        await Reg1.setPlate("cy-345-456");
+        await Reg1.setPlate("cl-12345");
+        await Reg1.setPlate("ca-222-456");
+        await Reg1.setPlate("cy123456");
+        
+      await Reg1.setID('CA');
+    
+    
+            assert.deepEqual([
+                {
+                  reg_number: 'CA-222-456'
+                }]
+              , await Reg1.setTown("CA"));
+    
+    });
+        
+    
+    })
+
+    describe('Registrations Webapp: Clear registration webapp' ,async function(){
 
 
+        it("should filter the registrations from Bellville" ,async function(){
+            let Reg1 = Registration(pool);
+    
+            await Reg1.setPlate("cy-345-456");
+            await Reg1.setPlate("cl-12345");
+            await Reg1.setPlate("cy-222-456");
+            await Reg1.setPlate("cy123456");
+            
+            await Reg1.clearReg();
+        
+        
+                assert.deepEqual([], await Reg1.getRegList());
+        
+        });
+    
+        it("should filter the registrations from Stellenbosch" ,async function(){
+            let Reg1 = Registration(pool);
+    
+            await Reg1.setPlate("cy-345-456");
+            await Reg1.setPlate("cl-12345");
+            await Reg1.setPlate("cl-222-456");
+            await Reg1.setPlate("cy123456");
+            
+            await Reg1.clearReg();
+        
+        
+            assert.deepEqual([], await Reg1.getRegList());
+        
+        });
+    
+        it("should filter the registrations from Cape Town" ,async function(){
+            let Reg1 = Registration(pool);
+    
+            await Reg1.setPlate("cy-345-456");
+            await Reg1.setPlate("cl-12345");
+            await Reg1.setPlate("ca-222-456");
+            await Reg1.setPlate("cy123456");
+            
+            await Reg1.clearReg();
+        
+        
+            assert.deepEqual([], await Reg1.getRegList());
+        
+        })
+    })
 
-//      assert.equal(5,await greet2.getCounter());
-
-
-// });
-
-// it('should take in five  names with two duplicates and return counter as 3' , async function(){
-  
-//     var greet2 = greetings(pool);
-
-
-//     await greet2.greetNow('English','Amy');
-//     await greet2.greetNow('English','Amy');
-//     await greet2.greetNow('Afrikaans','Penny');
-//     await greet2.greetNow('isiXhosa','Penny');
-//     await greet2.greetNow('isiXhosa','Mbali');
-
-
-
-//      assert.equal(3,await greet2.getCounter());
-
-// });
-
-
-// })
-
-// describe('Greet exercise:List of greeted names' ,async function(){
-//     it('should take in one name and return that name in list' , async function(){
-//         var greet2 = greetings(pool);
-
-//         await greet2.greetNow('English','Amy');
-
-
-
-//          assert.deepEqual([ {count: 1,name:'Amy'}] ,await greet2.getList());
-
-// });
-
-//  it('should take in five different names and return object list with all of them' , async function(){
-//     var greet2 = greetings(pool);
-
-//     await greet2.greetNow('English','Amy');
-//     await greet2.greetNow('English','Peggy');
-//     await greet2.greetNow('Afrikaans','Penny');
-//     await greet2.greetNow('isiXhosa','Enhle');
-//     await greet2.greetNow('isiXhosa','Mbali');
-
-
-
-//     assert.deepEqual([ {count: 1,name:'Amy'}, {count: 1,name:'Peggy'}, {count: 1,name:'Penny'}, {count: 1,name:'Enhle'},{count: 1,name:'Mbali'}] ,await greet2.getList());
-
-//  });
-
-// it('should take in five  names with two duplicates and return list' , async function(){
-//     var greet2 = greetings(pool);
-
-//     await greet2.greetNow('English','Amy');
-//     await greet2.greetNow('English','Amy');
-//     await greet2.greetNow('Afrikaans','Penny');
-//     await greet2.greetNow('isiXhosa','Penny');
-//     await greet2.greetNow('isiXhosa','Mbali');
-
-
-
-//     assert.deepEqual([ {count: 2,name:'Amy'},{count: 2,name:'Penny'},{count: 1,name:'Mbali'}] ,await greet2.getList());
-// });
-
-
-
-
-// })
 
 
 after(function(){
