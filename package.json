@@ -6,8 +6,6 @@
   "scripts": {
     "test": "mocha"
   },
-  
-  
   "keywords": [],
   "author": "",
   "license": "ISC",
