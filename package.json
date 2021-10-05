@@ -1,11 +1,13 @@
 {
   "name": "registration_numbers_webapp",
   "version": "1.0.0",
-  "description": "[![Build Status](https://app.travis-ci.com/Peggymailula/registration_numbers_webapp.svg?branch=main)](https://app.travis-ci.com/Peggymailula/registration_numbers_webapp)",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
+  
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -15,18 +17,7 @@
     "express-handlebars": "^5.3.3",
     "express-session": "^1.17.2",
     "pg": "^8.7.1",
-    "mocha": "^9.0.3"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Peggymailula/registration_numbers_webapp.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Peggymailula/registration_numbers_webapp/issues"
-  },
-  "homepage": "https://github.com/Peggymailula/registration_numbers_webapp#readme"
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  }
 }
