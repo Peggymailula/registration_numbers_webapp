@@ -1,0 +1,254 @@
+body {
+    background-color:rgb(230, 181, 90);
+}
+
+
+h1{
+    font-style: italic;
+      text-align: center;
+      font-size: 300%;
+}
+h4{
+    text-decoration: underline;
+}
+
+.textArea {
+    width: 100%;
+    margin-top: 20px;
+    /* margin: auto; */
+}
+
+.textArea label {
+ font-weight: bolder;
+}
+
+.textArea .input {
+    border: 1px solid #0c0f33;
+    border-radius: 5px;
+    padding: 20px;
+    width: 380px;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    /* margin-top: 20px; */
+}
+.twoButtons{
+    display : flex;
+    width: 40%;
+    margin: auto;
+}
+
+.info{
+    width: 320px;
+    padding: 10px;
+    border: 5px solid rgb(54, 51, 51);
+    margin: 0;
+}
+
+.textInput .listButton .input{
+display: block;
+width: 30%;
+float: left;
+}
+
+.listButton button {
+    position: relative;
+    display: block;
+    padding: 10px 10px;
+    width: 10%;
+    margin-bottom: 10px;
+    background-color: lightgrey;
+    border: 5px solid black;
+    border-radius: 15px;  
+     margin-left: 1%; 
+    display: inline;
+}
+.blockItems .button {
+    display: block;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 0px;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+}
+.flexItems {
+    display: flex;
+    width: 60%;
+    margin: auto;
+}
+
+.addButton{
+ 
+    padding: 10px;
+    width: 25%;
+    margin-left: 120%; 
+    margin-top: -8%;
+    font:bold;
+}
+.resetBtn{
+  
+    padding: 10px;
+    width: 25%;
+    /* margin-left: 30%; */
+    font:bold;
+    margin-top: -8%;
+}
+.selectTown {
+    display: flex;
+}
+
+
+select {
+    width: 250px;
+    height: 150px;
+    text-align: center;
+    color: #0c0f33;
+    font-weight: bolder;
+    /* padding: 20px; */
+    height: 50px;
+    background-color: white;
+    margin-top: 13px;
+    border: 5px solid  #0c0f33;;
+    border-radius: 5px;
+}
+
+.filter {
+    font-weight: bolder;
+}
+
+.value {
+    font-weight: bolder;
+    height: 70px;
+    padding: 20px;
+    color: #5e1d00;
+    text-align: center;
+}
+
+.registrations{
+    width: 60%;
+    margin: auto;
+
+}
+.registrations .displayTown {
+    display: flex;
+    margin-left: -50px;
+    position: relative;
+    width: 100%;
+}
+
+
+.registrations .displayTown::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.registrations .displayTown::before {
+     content: '\A'; 
+     white-space: pre; 
+    }
+
+
+.errors {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    width: 100%;
+    margin: auto;
+
+}
+.success {
+    text-align: center;
+    color: green;
+    font-weight: bold;  
+}
+
+.button a {
+    color: white;
+    text-decoration: none;
+    width: 30%;
+}
+.button :hover{
+    /* color: #5e1d00; */
+    background-color: slategrey;
+    text-decoration: none;;
+}
+
+.inputText{
+    padding: 0px;
+    width: 50%;
+}
+.label{
+    font-size: 150%;
+    margin-left: 5%;
+}
+
+ 
+@media  (min-width: 800px){
+
+.reg {
+    margin: 20px;
+    /* margin-left:-50px; */
+   
+    width: 12%;
+    padding: 9px;
+    background-color:lightgrey;
+    border: 5px solid black;
+    text-decoration:  #fff;
+    font-weight: bolder;
+    border-radius: 8px;
+    text-align: center;
+    font-size: small;
+}
+li {
+    margin: 20px;
+    /* margin-left:-50px; */
+   
+    width: 12%;
+    padding: 7px;
+    background-color:lightgrey;
+    border: 2px solid black;
+    text-decoration:  #fff;
+    font-weight: bolder;
+    border-radius: 8px;
+    text-align: center;
+    font-size: small;
+    list-style-type:none;
+    display: inline;
+    
+}
+
+.button {
+    border: none;
+   color:black;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 12px;
+    cursor: pointer;
+    width: 80%;
+   
+    background-color:rgb(233, 241, 239);
+    border-radius: 10px;
+  }
+
+}
+@media  (max-width: 800px){
+    
+li {
+    margin: 20px;
+    /* margin-left:-50px; */
+   
+    width: 12%;
+    padding: 7px;
+    background-color:lightgrey;
+    border: 5px solid black;
+    text-decoration:  #fff;
+    font-weight: bolder;
+    border-radius: 8px;
+    text-align: center;
+    font-size: small;
+}
+}
