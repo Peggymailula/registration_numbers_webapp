@@ -9,6 +9,7 @@ node_js:
   
 
 before_script:
+  - npm install
   - psql -c 'create database  registration;' -U postgres
   - psql -U postgres -d registration -a -f tables.sql
 
