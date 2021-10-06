@@ -8,7 +8,7 @@ h1{
       text-align: center;
       font-size: 300%;
 }
-h4{
+h5{
     text-decoration: underline;
 }
 
@@ -38,8 +38,8 @@ h4{
 }
 
 .info{
-    width: 320px;
-    padding: 10px;
+    width:400px;
+    padding: 8px;
     border: 5px solid rgb(54, 51, 51);
     margin: 0;
 }
