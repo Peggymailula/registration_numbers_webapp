@@ -10,8 +10,7 @@ module.exports = function registrationFactoryFunction(pool) {
 
   async function setPlate(plate) {
     // eslint-disable-next-line no-param-reassign
-    plate = plate.charAt(0).toUpperCase() + plate.charAt(1).toUpperCase() + plate.slice(2);
-    reg = plate;
+    reg = plate.charAt(0).toUpperCase() + plate.charAt(1).toUpperCase() + plate.slice(2);
 
     if (reg.match(registration1) || reg.match(registration2) || reg.match(registration3)) {
       // eslint-disable-next-line no-use-before-define

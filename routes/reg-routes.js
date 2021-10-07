@@ -13,9 +13,10 @@ module.exports = function registrationRoutes(registration) {
   }
 
   async function setReg(req, res) {
-    const reg = req.body.regInput;
+    let reg = req.body.regInput;
+    reg = reg.charAt(0).toUpperCase() + reg.charAt(1).toUpperCase() + reg.slice(2);
     if (!reg) {
-      req.flash('error', 'Please enter a h a valid registration');
+      req.flash('error', 'Please enter a registration number before proceeding');
     }
     if (reg) {
       if (reg.match(registration1) || reg.match(registration2) || reg.match(registration3)) {
